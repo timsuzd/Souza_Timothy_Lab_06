@@ -1,13 +1,38 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import com.sun.source.tree.WhileLoopTree;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+import java.util.Scanner;
+
+public class CtoFConverter{
+    public static void main(String[] args)
+    {
+        //input c and compute f
+        Scanner in = new Scanner(System.in);
+
+        double cVal = 0;
+        double fVal = 0;
+        double roundedFVal = 0;
+        boolean done = false;
+        String trash = "";
+
+        // F = (C * 9/5) + 32
+        do {
+            IO.print("Enter the measurement C you would like converted to F: ");
+            if(in.hasNextDouble())
+            {
+                cVal = in.nextDouble();
+                in.nextLine(); // clear the newline from the buffer
+
+                fVal = cVal * 9.0/5 + 32;
+                roundedFVal = (double) Math.round(fVal * 10) / 10; // prettier
+                IO.println("The measurement " + cVal + " C converts to " + roundedFVal + " F");
+                done = true;
+            }
+            else
+            {
+                trash = in.nextLine();
+                IO.println("Unacceptable. " + trash + " is not a valid input. Try again.");
+            }
+
+        }while (!done);
     }
 }
