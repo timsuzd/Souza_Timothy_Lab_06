@@ -15,7 +15,7 @@ public class HighorLow {
         do{
             int rInt = random.nextInt(1,10);
             do{
-                IO.print("Guess my number, 0-10: ");
+                IO.print("Guess my number, 1-10: ");
                 if (in.hasNextInt()){
                     guess = in.nextInt();
                     in.nextLine();
@@ -56,7 +56,7 @@ public class HighorLow {
             }
             else {
                 donePlaying = true;
-                IO.println("See you next time!.");
+                IO.println("See you next time!");
             }
 
         }while (!donePlaying);
